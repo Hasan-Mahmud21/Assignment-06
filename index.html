@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Green Earth</title>
+    <!-- Daisy UI and Tailwind -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- font awesome -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  </head>
+  <body>
+    <header class="w-full">
+      <div class="navbar bg-base-100 shadow-sm bg-green-600 py-3 px-15">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div
+              tabindex="0"
+              role="button"
+              class="btn btn-ghost lg:hidden"
+            ></div>
+            <ul
+              tabindex="0"
+              class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+            >
+              <li><a class="text-white font-bold bg-green-600">Gallery</a></li>
+              <li>
+                <a class="text-white font-bold bg-green-600">Plant a Tree</a>
+              </li>
+              <li><a class="text-white font-bold bg-green-600">About</a></li>
+            </ul>
+          </div>
+          <h1 class="text-white font-bold">Green Earth</h1>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a class="text-white font-bold">About</a></li>
+            <li><a class="text-white font-bold">Gallery</a></li>
+            <li><a class="text-white font-bold">Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end rounded-2xl">
+          <button
+            class="btn btn-warning text-green-500 font-semibold rounded-2xl bg-yellow-400"
+          >
+            Plant a Tree
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <section class="bg-[#cff0dc]">
+      <div class="flex flex-col space-y-3 md:flex md:flex-row justify-between items-center">
+        <img src="./assets/hero-leaf1.png" alt="" />
+        <div class="mt-5 text-center md:flex flex-col justify-center items-center space-y-5">
+          <h1 class="font-bold text-4xl">Plant a Tree, Grow a Future</h1>
+          <p class="font-normal">
+            Join our mission to plant 1 million trees and make the Earth greener
+            for future generations.
+          </p>
+          <button
+            class="btn btn-warning text-green-500 font-semibold rounded-2xl bg-yellow-400">
+            Get Involved
+          </button>
+        </div>
+        <img src="./assets/hero-leaf2.png" alt="" />
+      </div>
+    </section>
+
+<section class="bg-[#f0fdf4] py-6">
+  <h1 class="text-3xl font-bold text-center mb-6">Choose Your Trees</h1>
+
+  <div class="w-11/12 mx-auto grid grid-cols-12 gap-6">
+    
+    
+    <aside class="col-span-2 bg-white rounded-lg shadow p-4">
+      <h2 class="font-bold text-xl mb-4">Categories</h2>
+      <ul class="space-y-2" id="categoriesContainer">
+        
+      </ul>
+    </aside>
+
+    
+    <main class="col-span-8">
+      <div id="allPlantsContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        
+      </div>
+    </main>
+
+    
+    <aside class="col-span-2 bg-white rounded-lg shadow p-4">
+      <h2 class="font-bold text-xl mb-4">Your Cart</h2>
+      <ul class="space-y-2">
+        <li class="flex justify-between items-center">
+          <span>Mango Tree</span>
+          <span>1500 x 1</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <span>Guava Tree</span>
+          <span>1500 x 1</span>
+        </li>
+      </ul>
+      <div class="mt-4 border-t pt-2 flex justify-between font-bold">
+        <span>Total:</span>
+        <span>৳3000</span>
+      </div>
+    </aside>
+
+  </div>
+</section>
+
+
+    <script src="./script.js"></script>
+  </body>
+</html>
