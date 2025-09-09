@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Green Earth</title>
     <!-- Daisy UI and Tailwind -->
@@ -101,26 +101,34 @@
     </main>
 
     
-    <aside class="col-span-2 bg-white rounded-lg shadow p-4">
+    <aside id="cartContainer" class="col-span-2 bg-white rounded-lg shadow p-4">
       <h2 class="font-bold text-xl mb-4">Your Cart</h2>
-      <ul class="space-y-2">
-        <li class="flex justify-between items-center">
-          <span>Mango Tree</span>
-          <span>1500 x 1</span>
-        </li>
-        <li class="flex justify-between items-center">
-          <span>Guava Tree</span>
-          <span>1500 x 1</span>
-        </li>
-      </ul>
-      <div class="mt-4 border-t pt-2 flex justify-between font-bold">
-        <span>Total:</span>
-        <span>৳3000</span>
-      </div>
+      
     </aside>
 
   </div>
 </section>
+
+
+  <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="my_modal_5" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box">
+    <h1 id="modal-title" class="text-2xl font-bold"></h1>
+    <img id="modal-image" src="" alt="" class="w-full h-48 object-cover rounded-lg my-3" />
+    <p id="modal-description" class="text-gray-600 mb-2"></p>
+    <p id="modal-category" class="badge bg-green-100 text-green-600"></p>
+    <p id="modal-price" class="text-lg font-bold"></p>
+
+    <div class="modal-action">
+      <form method="dialog">
+        
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
+
 
 
     <script src="./script.js"></script>
