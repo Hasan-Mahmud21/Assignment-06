@@ -4,6 +4,7 @@ const cartContainer = document.getElementById("cartContainer");
 
 let addToCart = [];
 const loadAllPlants = async () => {
+  manageSpinner(true);
   try {
     const res = await fetch(`https://openapi.programming-hero.com/api/plants`);
     const data = await res.json();
@@ -12,6 +13,17 @@ const loadAllPlants = async () => {
     console.log(error);
   }
 };
+
+const manageSpinner = (status) => {
+  if(status === true){
+    document.getElementById("spinner").classList.remove("hidden")
+    document.getElementById("allPlantsContainer").classList.add("hidden")
+  }
+  else{
+        document.getElementById("allPlantsContainer").classList.remove("hidden")
+    document.getElementById("spinner").classList.add("hidden")
+  }
+}
 
 const showAllPlants = (plants) => {
   // console.log(plants);
@@ -39,8 +51,9 @@ const showAllPlants = (plants) => {
     </div>
   `;
   });
-
+  manageSpinner(false);
   loadPlantsInfo();
+  
 };
 
 loadAllPlants();
@@ -76,6 +89,7 @@ loadCategories();
 
 // Get plant by category
 const loadByCategory = async (categoryId) => {
+  manageSpinner(true)
   try {
     const res = await fetch(
       `https://openapi.programming-hero.com/api/category/${categoryId}`
@@ -91,6 +105,7 @@ const loadByCategory = async (categoryId) => {
   } catch (error) {
     console.log(error);
   }
+  
 };
 
 // For Modal
