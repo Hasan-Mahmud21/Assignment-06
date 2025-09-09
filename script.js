@@ -123,9 +123,9 @@ const showPlantsInfo = (plant) => {
 loadPlantsInfo();
 
 const handleCart = (e) => {
-   const card = e.target.parentNode;
+  const card = e.target.parentNode;
   const plantTitle = card.children[1].innerText;
-  const plantPrice = card.children[3].children[1].innerText; 
+  const plantPrice = parseFloat(card.children[3].children[1].innerText); // convert to number
   
   const current = addToCart.find(item => item.title === plantTitle);
 
@@ -142,7 +142,7 @@ const handleCart = (e) => {
   showCart(addToCart);
 };
 
-
+// Event listener for Add to Cart
 allPlantsContainer.addEventListener('click', (e) => {
   if (e.target.innerText === "Add to Cart") {
     handleCart(e);
@@ -152,13 +152,45 @@ allPlantsContainer.addEventListener('click', (e) => {
 const showCart = (addToCart) => {
   cartContainer.innerHTML = ""; 
 
-  addToCart.forEach(cart => {
+  let total = 0;
+
+  addToCart.forEach((cart, index) => {
+    const itemTotal = cart.price * cart.quantity;
+    total += itemTotal;
+
     cartContainer.innerHTML += `
-      <li class="flex justify-between items-center border-b py-2">
-        <span class="font-medium">${cart.title}</span>
-        <span class="font-bold text-green-600">${cart.price} x ${cart.quantity}</span>
-      </li>
+      <div class="mt-2 flex justify-between items-center bg-[#DCFCE7] p-2">
+        <div>
+          <p class="font-bold text-xl">${cart.title}</p>
+          <p class=" text-gray-500 mt-3">${cart.price} x ${cart.quantity} = ${itemTotal}</p>
+        </div>  
+        <i class="removeButtons fa-solid fa-xmark cursor-pointer" data-index="${index}"></i>
+      </div>
     `;
+  });
+
+  // Show total at the bottom
+  if (addToCart.length > 0) {
+    cartContainer.innerHTML += `
+      <div class="flex justify-between items-center">
+      <div class="mt-4 p-2 font-bold text-lg text-right">
+        Total:
+      </div>
+      <div><i class="fa-solid fa-bangladeshi-taka-sign"></i>${total}</div>
+      </div>
+    `;
+  }
+  const removeBtns = cartContainer.querySelectorAll(".removeButtons");
+  removeBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      const index = btn.getAttribute("data-index");
+      if (addToCart[index].quantity > 1) {
+        addToCart[index].quantity -= 1;
+      } else {
+        addToCart.splice(index, 1);
+      }
+      showCart(addToCart); 
+    });
   });
 };
 
